@@ -1,80 +1,55 @@
-import fetch from "node-fetch"; // Required for Telegram API calls
+// /api/handle.js
+import fetch from "node-fetch";
 
 export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ success: false, error: "Method Not Allowed" });
+  }
+
   try {
-    // ✅ Allow only POST requests
-    if (req.method !== "POST") {
-      return res.status(405).json({ error: "Method Not Allowed" });
-    }
+    const { platform, message, mediaUrls = [] } = req.body;
 
-    // ✅ Parse the body from frontend
-    const body = await req.json?.() || req.body;
-
-    const { platform, message, mediaUrls } = body || {};
-
-    if (!platform || !message) {
-      return res.status(400).json({ error: "Missing platform or message" });
-    }
-
-    // ✅ Environment variables (loaded from Vercel dashboard)
-    const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-    const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-
-    // 🧩 TELEGRAM PATH
     if (platform === "telegram") {
-      if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-        return res
-          .status(500)
-          .json({ error: "Telegram credentials not configured in environment." });
+      const botToken = process.env.TELEGRAM_BOT_TOKEN;
+      const chatId = process.env.TELEGRAM_CHAT_ID;
+
+      if (!botToken || !chatId) {
+        return res.status(500).json({
+          success: false,
+          error: "Missing Telegram credentials",
+        });
       }
 
-      // --- Send message first ---
-      const sendMessageURL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-      await fetch(sendMessageURL, {
+      // Send text first
+      await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
+          chat_id: chatId,
           text: message,
-          parse_mode: "HTML",
+          parse_mode: "Markdown",
         }),
       });
 
-      // --- Send any images/videos (if included) ---
-      if (Array.isArray(mediaUrls) && mediaUrls.length > 0) {
-        const sendMediaURL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMediaGroup`;
-        const mediaPayload = mediaUrls.map((url) => ({
-          type: url.match(/\.(mp4|mov|avi|mkv)$/i) ? "video" : "photo",
-          media: url,
-        }));
-
-        await fetch(sendMediaURL, {
+      // Then send each media item (if any)
+      for (const url of mediaUrls) {
+        await fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            media: mediaPayload,
+            chat_id: chatId,
+            photo: url,
+            caption: "📸 Product image",
           }),
         });
       }
 
-      return res.status(200).json({ success: true, sentTo: "Telegram" });
+      return res.status(200).json({ success: true });
     }
 
-    // 🧩 WHATSAPP PATH
-    if (platform === "whatsapp") {
-      // Instead of API calls (since WhatsApp doesn’t allow server-side messages),
-      // we just redirect the buyer to your WhatsApp chat link.
-      return res.status(200).json({
-        success: true,
-        redirectUrl: `https://wa.me/2348160813334?text=${encodeURIComponent(message)}`,
-      });
-    }
-
-    // 🧩 Unsupported platform
-    return res.status(400).json({ error: "Unsupported platform" });
+    return res.status(400).json({ success: false, error: "Invalid platform" });
   } catch (err) {
-    console.error("❌ handle.js error:", err);
-    return res.status(500).json({ error: "Internal Server Error" });
+    console.error("❌ Telegram Error:", err);
+    res.status(500).json({ success: false, error: err.message });
   }
 }

@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
 
-    // close overlay when clicking outside modal
     overlay.addEventListener("click", (e) => {
       if (e.target === overlay) overlay.remove();
     });
@@ -115,119 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==============================
-  // HELPER FUNCTIONS
-  // ==============================
-  async function captureVideoFrame(video) {
-    const canvas = document.createElement("canvas");
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    return canvas.toDataURL("image/png");
-  }
-
-  function downloadFile(dataURL, filename) {
-    const link = document.createElement("a");
-    link.download = filename;
-    link.href = dataURL;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-
-  // ==============================
-  // DOWNLOAD PROMPT MODAL
-  // ==============================
-  function createChoiceModal(onChoice) {
-    const overlay = document.createElement("div");
-    overlay.style.cssText = `
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 999999;
-    `;
-    const modal = document.createElement("div");
-    modal.style.cssText = `
-      background: #fff;
-      padding: 2rem;
-      border-radius: 16px;
-      text-align: center;
-      max-width: 320px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-      font-family: 'Poppins', sans-serif;
-    `;
-    modal.innerHTML = `
-      <h3 style="margin-bottom: 1rem; color:#333;">Download before sending?</h3>
-      <p style="margin-bottom: 1.5rem; color:#666;">Would you like to save product images/videos before sending?</p>
-      <button id="yesBtn" style="background:#fbb040;color:#fff;border:none;padding:10px 20px;border-radius:8px;margin-right:10px;cursor:pointer;">Yes</button>
-      <button id="noBtn" style="background:#333;color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;">No</button>
-    `;
-    overlay.appendChild(modal);
-    document.body.appendChild(overlay);
-
-    overlay.addEventListener("click", (e) => {
-      if (e.target === overlay) overlay.remove();
-    });
-
-    modal.querySelector("#yesBtn").onclick = () => {
-      overlay.remove();
-      onChoice(true);
-    };
-    modal.querySelector("#noBtn").onclick = () => {
-      overlay.remove();
-      onChoice(false);
-    };
-  }
-
-  // ==============================
-  // SEND TO WHATSAPP
-  // ==============================
-  async function sendToWhatsApp(cards) {
-    if (!cards.length) return;
-    const whatsappNumber = "2348160813334";
-    const isSingle = cards.length === 1;
-    let message = isSingle
-      ? "👋 Good day! I’d like to buy this product:\n\n"
-      : "👋 Good day! I’d like to buy these products:\n\n";
-
-    createChoiceModal(async (shouldDownload) => {
-      for (let i = 0; i < cards.length; i++) {
-        const card = cards[i];
-        const title = card.querySelector("h3")?.textContent?.trim() || "Unnamed Product";
-        const imgEl = card.querySelector("img");
-        const videoEl = card.querySelector("video");
-        let mediaData = "";
-
-        if (shouldDownload) {
-          if (imgEl) {
-            const canvas = await html2canvas(card, { backgroundColor: "#fff" });
-            const dataURL = canvas.toDataURL("image/png");
-            downloadFile(dataURL, `${title.replace(/\s+/g, "_")}.png`);
-          }
-          if (videoEl) {
-            const frame = await captureVideoFrame(videoEl);
-            downloadFile(frame, `${title.replace(/\s+/g, "_")}_video.png`);
-          }
-          message += `${i + 1}. *${title}*\n(Saved locally)\n\n`;
-        } else {
-          if (imgEl) mediaData = imgEl.src;
-          else if (videoEl) mediaData = videoEl.currentSrc || videoEl.src;
-          message += `${i + 1}. *${title}*\n${mediaData}\n\n`;
-        }
-      }
-
-      message += "🛒 Sent from *Henry Sells* website.\n\nThank you!";
-      const encoded = encodeURIComponent(message);
-      const url = `https://wa.me/${whatsappNumber}?text=${encoded}`;
-      window.open(url, "_blank");
-    });
-  }
-
-  // ==============================
-  // SEND TO TELEGRAM (via /api/handle.js)
+  // TELEGRAM SENDER (via ../api/handle.js.js)
   // ==============================
   async function sendToTelegram(cards) {
     const products = cards.map((card) => ({
@@ -236,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }));
 
     try {
-      const response = await fetch("/api/handle", {
+      const response = await fetch("../api/handle.js", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -252,11 +139,46 @@ document.addEventListener("DOMContentLoaded", () => {
       if (result.success) {
         alert("✅ Sent to Telegram successfully!");
       } else {
-        alert("⚠️ Failed to send to Telegram.");
+        alert("⚠️ Failed to send to Telegram. Please check your bot credentials.");
       }
     } catch (err) {
       console.error("Error sending to Telegram:", err);
-      alert("❌ Network error while sending to Telegram.");
+      alert("❌ Network error while sending to Telegram. Please try again later.");
     }
+  }
+
+  // ==============================
+  // WHATSAPP WITH SNAPSHOTS
+  // ==============================
+  async function sendToWhatsApp(cards) {
+    if (!cards.length) return;
+
+    const whatsappNumber = "2348160813334";
+    const isSingle = cards.length === 1;
+
+    let message = isSingle
+      ? "👋 Good day! I’d like to buy this product:\n\n"
+      : "👋 Good day! I’d like to buy these products:\n\n";
+
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i];
+      const title = card.querySelector("h3")?.textContent?.trim() || "Unnamed Product";
+
+      // Take snapshot of product card
+      const canvas = await html2canvas(card, { backgroundColor: "#fff" });
+      const dataURL = canvas.toDataURL("image/png");
+
+      // Convert snapshot to temporary blob URL
+      const blob = await (await fetch(dataURL)).blob();
+      const blobUrl = URL.createObjectURL(blob);
+
+      message += `${i + 1}. *${title}*\n${blobUrl}\n\n`;
+    }
+
+    message += "🛒 Sent from *Henry Sells* website.\n\nThank you!";
+    const encoded = encodeURIComponent(message);
+    const url = `https://wa.me/${whatsappNumber}?text=${encoded}`;
+
+    window.open(url, "_blank");
   }
 });
