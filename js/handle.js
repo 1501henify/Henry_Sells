@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let selectedCards = new Set();
   let longPressTimer;
 
-  // --- Product menu toggle
+  // ==============================
+  // PRODUCT MENU TOGGLE
+  // ==============================
   document.querySelectorAll(".menu-icon").forEach((icon) => {
     icon.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -20,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".menu-options").forEach((m) => (m.style.display = "none"));
   });
 
-  // --- Card selection logic
+  // ==============================
+  // CARD SELECTION
+  // ==============================
   function toggleSelect(card) {
     card.classList.toggle("selected");
     if (card.classList.contains("selected")) selectedCards.add(card);
@@ -28,7 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
     buySelectedBtn.classList.toggle("show", selectedCards.size > 1);
   }
 
-  // --- Long press to select
+  // ==============================
+  // LONG PRESS SELECT
+  // ==============================
   cards.forEach((card) => {
     const buyBtn = card.querySelector(".buy-btn");
     const selectBtn = card.querySelector(".select-btn");
@@ -59,7 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
     promptChatPreference([...selectedCards]);
   });
 
-  // --- Asks buyer where to continue chatting (Telegram or WhatsApp)
+  // ==============================
+  // PROMPT CHAT PLATFORM
+  // ==============================
   function promptChatPreference(cards) {
     const overlay = document.createElement("div");
     overlay.style.cssText = `
@@ -80,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       max-width: 320px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.3);
       font-family: 'Poppins', sans-serif;
+      position: relative;
     `;
     modal.innerHTML = `
       <h3 style="margin-bottom: 1rem; color:#333;">Choose Chat Platform</h3>
@@ -89,6 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
+
+    // close overlay when clicking outside modal
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) overlay.remove();
+    });
 
     modal.querySelector("#telegramBtn").onclick = async () => {
       overlay.remove();
@@ -100,7 +114,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // --- Helper: capture video frame
+  // ==============================
+  // HELPER FUNCTIONS
+  // ==============================
   async function captureVideoFrame(video) {
     const canvas = document.createElement("canvas");
     canvas.width = video.videoWidth;
@@ -110,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return canvas.toDataURL("image/png");
   }
 
-  // --- Helper: download a given base64 URL
   function downloadFile(dataURL, filename) {
     const link = document.createElement("a");
     link.download = filename;
@@ -120,7 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.removeChild(link);
   }
 
-  // --- Download modal
+  // ==============================
+  // DOWNLOAD PROMPT MODAL
+  // ==============================
   function createChoiceModal(onChoice) {
     const overlay = document.createElement("div");
     overlay.style.cssText = `
@@ -151,6 +168,10 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
 
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) overlay.remove();
+    });
+
     modal.querySelector("#yesBtn").onclick = () => {
       overlay.remove();
       onChoice(true);
@@ -161,10 +182,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // --- Main: Send products to WhatsApp
+  // ==============================
+  // SEND TO WHATSAPP
+  // ==============================
   async function sendToWhatsApp(cards) {
     if (!cards.length) return;
-
     const whatsappNumber = "2348160813334";
     const isSingle = cards.length === 1;
     let message = isSingle
@@ -174,8 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
     createChoiceModal(async (shouldDownload) => {
       for (let i = 0; i < cards.length; i++) {
         const card = cards[i];
-        const title =
-          card.querySelector("h3")?.textContent?.trim() || "Unnamed Product";
+        const title = card.querySelector("h3")?.textContent?.trim() || "Unnamed Product";
         const imgEl = card.querySelector("img");
         const videoEl = card.querySelector("video");
         let mediaData = "";
@@ -194,7 +215,6 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           if (imgEl) mediaData = imgEl.src;
           else if (videoEl) mediaData = videoEl.currentSrc || videoEl.src;
-
           message += `${i + 1}. *${title}*\n${mediaData}\n\n`;
         }
       }
@@ -206,7 +226,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- Send products to Telegram backend
+  // ==============================
+  // SEND TO TELEGRAM (via /api/handle.js)
+  // ==============================
   async function sendToTelegram(cards) {
     const products = cards.map((card) => ({
       title: card.querySelector("h3")?.textContent?.trim() || "Unnamed",
@@ -214,10 +236,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }));
 
     try {
-      const response = await fetch("../api/handle.js", {
+      const response = await fetch("/api/handle", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ products }),
+        body: JSON.stringify({
+          platform: "telegram",
+          message: `🛒 New product interest from Henry Sells:\n\n${products
+            .map((p, i) => `${i + 1}. ${p.title}\n${p.url}`)
+            .join("\n\n")}`,
+          mediaUrls: products.map((p) => p.url),
+        }),
       });
 
       const result = await response.json();
