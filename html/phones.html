@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Henry Sells | Phones</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- Font Awesome: icons -->
+    <link
+      rel="stylesheet"
+      href="../font/fontawesome-free-6.6.0-web/css/all.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div>
+        <a href="#deals"
+          ><span class="fa-stack fa-1g"
+            ><i class="fa-solid fa-circle fa-stack-2x"></i
+            ><i class="fa-solid fa-star fa-stack-1x"></i></span
+          >Buy from me</a
+        >
+      </div>
+
+      <div>
+        <p>Henry Sells Phones</p>
+      </div>
+    </header>
+
+    <nav class="navbar">
+      <div class="wrapper">
+        <div class="logo">
+          Henry<b>Sells</b
+          ><span class="fa-stack fa-1g"
+            ><i class="fa-regular fa-circle fa-stack-2x"></i
+            ><i class="fa-solid fa-star fa-stack-1x"></i
+          ></span>
+        </div>
+
+        <div class="search-bar">
+          <input
+            type="search"
+            placeholder="Search produts, brands and categories"
+          />
+          <button class="search-btn">Search</button>
+        </div>
+
+        <div class="about-me more-info-btn" data-target="card1">
+          <i class="fa-regular fa-user"></i>About
+        </div>
+
+        <div class="help more-info-btn" data-target="card2">
+          <i class="fa-regular fa-circle-question"></i>Help
+        </div>
+
+        <div class="contact more-info-btn" data-target="card3">
+          <i class="fa-solid fa-location-dot"></i>Contact
+        </div>
+      </div>
+
+      <!-- Overlay -->
+      <div class="overlay" id="overlay">
+        <!-- Card 1 -->
+        <div class="card" id="card1">
+          <i class="fa-solid fa-xmark close-btn"></i>
+          <h2>About</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel
+            sapien ut lacus commodo tincidunt. Cras non lorem ac nisl malesuada
+            varius.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div class="card" id="card2">
+          <i class="fa-solid fa-xmark close-btn"></i>
+          <h2>Help</h2>
+          <p>
+            Curabitur et libero in justo elementum viverra. Maecenas sed
+            vestibulum justo. Integer vitae augue elit. Aliquam erat volutpat.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div class="card" id="card3">
+          <i class="fa-solid fa-xmark close-btn"></i>
+          <h2>Contact Us</h2>
+          <p>
+            Curabitur et libero in justo elementum viverra. Maecenas sed
+            vestibulum justo. Integer vitae augue elit. Aliquam erat volutpat.
+          </p>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <p class="nav">
+        <span id="current">Home</span>
+        <span id="nav-toggle">›</span>
+        <span id="nav-links" class="hidden">
+          <a href="../index.html" data-name="Home">Home</a>
+          <a href="laptop.html" data-name="Laptops">Laptops,</a>
+          <a href="phones.html" data-name="Phones">Phones,</a>
+          <a href="accessories.html" data-name="Accessories">Accessories,</a>
+          <a href="clothing.html" data-name="Men's Clothing">Men's Clothing,</a>
+          <a href="shoes.html" data-name="Men's Shoes">Men's Shoes</a>
+        </span>
+      </p>
+    </div>
+    <!-- Navigation -->
+
+    <section class="categories">
+      <div>
+        <img src="../assets/iPhone.png" alt="Iphone-print" width="145px" />
+        <p>iPhone <span>(Apple)</span></p>
+      </div>
+
+      <div>
+        <img src="../assets/Samsung.jpg" alt="Samsung-print" width="145px" />
+        <p>Samsung</p>
+      </div>
+
+      <div>
+        <img src="../assets/Xiaomi.jpeg" alt="Xiaomi" width="145px" />
+        <p>Xiaomi</p>
+      </div>
+
+      <div>
+        <img src="../assets/OnePlus.jpeg" alt="OnePlus-print" width="145px" />
+        <p>OnePlus</p>
+      </div>
+
+      <div>
+        <img src="../assets/oppo.jpeg" alt="Oppo-print" width="145px" />
+        <p>Oppo</p>
+      </div>
+
+      <div>
+        <img src="../assets/pixel.jpeg" alt="Pixel-print" width="145px" />
+        <p>Google <span>(pixel)</span></p>
+      </div>
+    </section>
+
+    <section class="showcase"></section>
+
+    <section class="deals" id="deals">
+      <div class="product-card" data-product="1">
+        <div class="product-container">
+          <video
+            class="product-video"
+            src="../assets/iPhone1.mp4"
+            muted
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <div class="price-tag">
+            <span class="currency">₦</span><span class="amount">190k</span>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3>iPhone X 64gb</h3>
+          <p>(100% bh)</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="2">
+        <div class="product-container">
+          <video
+            class="product-video"
+            src="../assets/iPhone2.mp4"
+            muted
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <div class="price-tag">
+            <span class="currency">₦</span><span class="amount">190k</span>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3>iPhone X 64gb</h3>
+          <p>(100% bh)</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="3">
+        <div class="product-container">
+          <video
+            class="product-video"
+            src="../assets/iPhone3.mp4"
+            muted
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <div class="price-tag">
+            <span class="currency">₦</span><span class="amount">240k</span>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3>iPhone XR 128gb</h3>
+          <p>(86% bh)</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="4">
+        <div class="product-container">
+          <video
+            class="product-video"
+            src="../assets/iPhone4.mp4"
+            muted
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <div class="price-tag">
+            <span class="currency">₦</span><span class="amount">480k</span>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3>iPhone 12pro 256gb</h3>
+          <p>(86% bh)</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="5">
+        <div class="product-container">
+          <video
+            class="product-video"
+            src="../assets/iPhone5.mp4"
+            muted
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <div class="price-tag">
+            <span class="currency">₦</span><span class="amount">910k</span>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3>iPhone 15pro 128gb</h3>
+          <p>(88% bh)</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="6">
+        <div class="product-container">
+          <video
+            class="product-video"
+            src="../assets/iPhone6.mp4"
+            muted
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <div class="price-tag">
+            <span class="currency">₦</span><span class="amount">320k</span>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3>iPhone 11pro max 64gb</h3>
+          <p>(89% bh)</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="7">
+        <div class="product-container">
+          <video
+            class="product-video"
+            src="../assets/iPhone7.mp4"
+            muted
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <div class="price-tag">
+            <span class="currency">₦</span><span class="amount">590k</span>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3>iPhone 12pro 128gb</h3>
+          <p>(88% bh)</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="8">
+        <div class="product-container">
+          <video
+            class="product-video"
+            src="../assets/iPhone8.mp4"
+            muted
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <div class="price-tag">
+            <span class="currency">₦</span><span class="amount">1.1m</span>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3>iPhone 16pro 128gb</h3>
+          <p>(100% bh)</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="9">
+        <div class="product-container">
+          <video
+            class="product-video"
+            src="../assets/iPhone9.mp4"
+            muted
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <div class="price-tag">
+            <span class="currency">₦</span><span class="amount">560k</span>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3>iPhone 12pro max 256gb</h3>
+          <p>(88% bh)</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="10">
+        <div class="product-container">
+          <video
+            class="product-video"
+            src="../assets/iPhone10.mp4"
+            muted
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <div class="price-tag">
+            <span class="currency">₦</span><span class="amount">490k</span>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3>iPhone 13 128gb</h3>
+          <p>(88% bh)</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="11">
+        <div class="product-container">
+          <img
+            class="product-image"
+            src="../assets/iPhone11.jpg"
+            alt="Product"
+          />
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <!-- ✨ Fancy Price Tag -->
+          <div class="price-tag">
+            <span class="currency">₦</span><span class="amount">1m30k</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>iPhone 15pro 256gb</h3>
+          <p>(White 85% & Black 90%)</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="12">
+        <div class="product-container">
+          <video
+            class="product-video"
+            src="../assets/iPhone12.mp4"
+            muted
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <div class="price-tag">
+            <span class="currency">₦</span><span class="amount">265k</span>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3>iPhone Xs max 64gb</h3>
+          <p>(85% bh)</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREVIEW OVERLAYS (one per product) -->
+    <section>
+      <div class="preview-overlay" data-preview="1">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <video src="../assets/iPhone1.mp4" controls></video>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Specifications:</h3>
+            <ul>
+              <li>100% bh</li>
+              <li>Storage: 64GB SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-overlay" data-preview="2">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <video src="../assets/iPhone2.mp4" controls></video>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Specifications:</h3>
+            <ul>
+              <li>100% bh</li>
+              <li>Storage: 64GB SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-overlay" data-preview="3">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <video src="../assets/iPhone3.mp4" controls></video>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Specifications:</h3>
+            <ul>
+              <li>86% bh</li>
+              <li>Storage: 128GB SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-overlay" data-preview="4">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <video src="../assets/iPhone4.mp4" controls></video>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Specifications:</h3>
+            <ul>
+              <li>86% bh</li>
+              <li>No changed part</li>
+              <li>Storage: 256GB SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-overlay" data-preview="5">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <video src="../assets/iPhone5.mp4" controls></video>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Specifications:</h3>
+            <ul>
+              <li>88% bh</li>
+              <li>Storage: 128GB SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-overlay" data-preview="6">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <video src="../assets/iPhone6.mp4" controls></video>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Specifications:</h3>
+            <ul>
+              <li>89% bh</li>
+              <li>Storage: 64GB SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-overlay" data-preview="7">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <video src="../assets/iPhone7.mp4" controls></video>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Specifications:</h3>
+            <ul>
+              <li>UK</li>
+              <li>Blue 100% bh</li>
+              <li>Gold 88% bh</li>
+              <li>Storage: 128GB SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-overlay" data-preview="8">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <video src="../assets/iPhone8.mp4" controls></video>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Specifications:</h3>
+            <ul>
+              <li>100% bh</li>
+              <li>Open Box</li>
+              <li>Storage: 128GB SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-overlay" data-preview="9">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <video src="../assets/iPhone9.mp4" controls></video>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Specifications:</h3>
+            <ul>
+              <li>88% bh</li>
+              <li>No changed part</li>
+              <li>Storage: 256GB SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-overlay" data-preview="10">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <video src="../assets/iPhone10.mp4" controls></video>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Specifications:</h3>
+            <ul>
+              <li>88% bh</li>
+              <li>Storage: 128GB SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-overlay" data-preview="11">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <img src="../assets/iPhone11.jpg" alt="iPhone11" />
+              <a
+                href="../assets/iPhone11.jpg"
+                download
+                class="save-btn"
+                title="Save image"
+                ><i class="fa-solid fa-download"></i
+              ></a>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Specifications:</h3>
+            <ul>
+              <li>White Titanium 86% bh</li>
+              <li>Black Titanium 86% bh</li>
+              <li>Storage: 256GB SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-overlay" data-preview="12">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <video src="../assets/iPhone12.mp4" controls></video>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Specifications:</h3>
+            <ul>
+              <li>85% bh</li>
+              <li>Storage: 64GB SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Buy Selected Button -->
+    <button class="buy-selected-btn">Buy Selected</button>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <!-- Review section -->
+        <div class="review-card" role="form" aria-labelledby="reviewTitle">
+          <div class="left">
+            <div>
+              <div class="title" id="reviewTitle">
+                <i class="fa-solid fa-star"></i>
+                Leave a review
+              </div>
+              <div class="subtitle">
+                Share your experience — honest, short, or long. We read every
+                single one.
+              </div>
+            </div>
+            <div class="review-input">
+              <label class="visually-hidden" for="review-text"
+                >Your review</label
+              >
+              <textarea
+                id="review-text"
+                name="review"
+                placeholder="Tell us what you loved (or what we can improve). Be specific — it helps future visitors and our team."
+                maxlength="1200"
+                aria-describedby="charHint"
+              ></textarea>
+              <div class="meta-row">
+                <div class="meta-pill">Public</div>
+                <div class="meta-pill" id="charHint">1200 max</div>
+              </div>
+            </div>
+            <div class="legal">
+              By submitting, you agree to our community guidelines.
+            </div>
+          </div>
+          <div class="right">
+            <div class="star-row">
+              <div class="star">
+                <i
+                  class="fa-solid fa-star"
+                  style="color: #f6d365; font-size: 20px"
+                ></i>
+              </div>
+            </div>
+            <button class="submit-btn" type="button" aria-label="Submit review">
+              <i class="fa-solid fa-pen-nib"></i>
+              Submit review
+            </button>
+            <div class="submit-caption">Secure • Moderated • Responsive</div>
+            <div class="helper">
+              Want to add photos or replies? That can be wired up next.
+            </div>
+          </div>
+        </div>
+        <!-- Brand / Logo -->
+        <div class="footer-brand">
+          <div class="logo">
+            Henry<b>Sells</b>
+            <span class="fa-stack fa-1g">
+              <i class="fa-regular fa-circle fa-stack-2x"></i>
+              <i class="fa-solid fa-star fa-stack-1x"></i>
+            </span>
+          </div>
+          <div class="socials">
+            <a
+              href="https://www.instagram.com/ifyoke0?igsh=aXdnY3ZpYmdmcGZu"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              referrerpolicy="noreferrer"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a
+              href="https://x.com/IfyOke0?s=09"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              referrerpolicy="noreferrer"
+              aria-label="Twitter"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+
+            <a
+              href="https://github.com/1501henify"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              referrerpolicy="noreferrer"
+              aria-label="Github"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a
+              href="https://discordapp.com/users/1262097173894660160"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              referrerpolicy="noreferrer"
+              aria-label="Discord"
+            >
+              <i class="fa-brands fa-discord"></i>
+            </a>
+
+            <a
+              href="https://t.me/IfyOke0"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              referrerpolicy="noreferrer"
+              aria-label="Telegram"
+            >
+              <i class="fa-brands fa-telegram"></i>
+            </a>
+
+            <a
+              href="mailto:henify.1501@gmail.com"
+              rel="nofollow"
+              aria-label="Email"
+            >
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="footer-links">
+        <button class="footer-btn" data-popup="about">About Us</button>
+        <button class="footer-btn" data-popup="help">Help</button>
+        <button class="footer-btn" data-popup="contact">Contact</button>
+      </div>
+
+      <p class="copyright">
+        &copy; <span id="year"></span> Henry Sell |
+        <a
+          href="https://universal-henify.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Henify_
+        </a>
+      </p>
+
+      <!-- Popup Modal -->
+      <div class="popup" id="popup">
+        <div class="popup-content">
+          <span class="close-btn">&times;</span>
+          <h2 id="popup-title"></h2>
+          <p id="popup-text"></p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Javascripts -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="../js/handle.js"></script>
+    <script src="../js/specs.js"></script>
+    <script src="../js/info.js"></script>
+    <script src="../js/showcase.js"></script>
+    <script src="../js/filter.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/observer.js"></script>
+    <script src="../js/loader.js"></script>
+  </body>
+</html>

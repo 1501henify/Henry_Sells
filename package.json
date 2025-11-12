@@ -1,0 +1,24 @@
+{
+  "name": "henrysells",
+  "version": "1.0.0",
+  "description": "A simple, future-proof eCommerce website hosted on Vercel with Telegram bot integration.",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static build complete!'",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "vercel",
+    "shop",
+    "telegram-bot",
+    "ecommerce",
+    "html-css-js"
+  ],
+  "author": "Henry (Anyi)",
+  "license": "MIT"
+}

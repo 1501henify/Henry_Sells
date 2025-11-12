@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Henry Sells | Men's Shoes</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- Font Awesome: icons -->
+    <link
+      rel="stylesheet"
+      href="../font/fontawesome-free-6.6.0-web/css/all.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div>
+        <a href="#deals"
+          ><span class="fa-stack fa-1g"
+            ><i class="fa-solid fa-circle fa-stack-2x"></i
+            ><i class="fa-solid fa-star fa-stack-1x"></i></span
+          >Buy from me</a
+        >
+      </div>
+
+      <div>
+        <p>Henry Sells Men's Shoes</p>
+      </div>
+    </header>
+
+    <nav class="navbar">
+      <div class="wrapper">
+        <div class="logo">
+          Henry<b>Sells</b
+          ><span class="fa-stack fa-1g"
+            ><i class="fa-regular fa-circle fa-stack-2x"></i
+            ><i class="fa-solid fa-star fa-stack-1x"></i
+          ></span>
+        </div>
+
+        <div class="search-bar">
+          <input
+            type="search"
+            placeholder="Search produts, brands and categories"
+          />
+          <button class="search-btn">Search</button>
+        </div>
+
+        <div class="about-me more-info-btn" data-target="card1">
+          <i class="fa-regular fa-user"></i>About
+        </div>
+
+        <div class="help more-info-btn" data-target="card2">
+          <i class="fa-regular fa-circle-question"></i>Help
+        </div>
+
+        <div class="contact more-info-btn" data-target="card3">
+          <i class="fa-solid fa-location-dot"></i>Contact
+        </div>
+      </div>
+
+      <!-- Overlay -->
+      <div class="overlay" id="overlay">
+        <!-- Card 1 -->
+        <div class="card" id="card1">
+          <i class="fa-solid fa-xmark close-btn"></i>
+          <h2>About</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel
+            sapien ut lacus commodo tincidunt. Cras non lorem ac nisl malesuada
+            varius.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div class="card" id="card2">
+          <i class="fa-solid fa-xmark close-btn"></i>
+          <h2>Help</h2>
+          <p>
+            Curabitur et libero in justo elementum viverra. Maecenas sed
+            vestibulum justo. Integer vitae augue elit. Aliquam erat volutpat.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div class="card" id="card3">
+          <i class="fa-solid fa-xmark close-btn"></i>
+          <h2>Contact Us</h2>
+          <p>
+            Curabitur et libero in justo elementum viverra. Maecenas sed
+            vestibulum justo. Integer vitae augue elit. Aliquam erat volutpat.
+          </p>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <p class="nav">
+        <span id="current">Home</span>
+        <span id="nav-toggle">›</span>
+        <span id="nav-links" class="hidden">
+          <a href="../index.html" data-name="Home">Home</a>
+          <a href="laptop.html" data-name="Laptops">Laptops,</a>
+          <a href="phones.html" data-name="Phones">Phones,</a>
+          <a href="accessories.html" data-name="Accessories">Accessories,</a>
+          <a href="clothing.html" data-name="Men's Clothing">Men's Clothing,</a>
+          <a href="shoes.html" data-name="Men's Shoes">Men's Shoes</a>
+        </span>
+      </p>
+    </div>
+    <!-- Navigation -->
+
+    <section class="categories">
+      <div>
+        <img src="../assets/nike.png" alt="Nike-print" width="145px" />
+        <p>Nike</p>
+      </div>
+
+      <div>
+        <img src="../assets/Adidas.png" alt="Adidas-print" width="145px" />
+        <p>Adidas</p>
+      </div>
+
+      <div>
+        <img src="../assets/puma.png" alt="Puma-print" width="145px" />
+        <p>Puma</p>
+      </div>
+
+      <div>
+        <img
+          src="../assets/timberland.png"
+          alt="Timberland-print"
+          width="145px"
+        />
+        <p>Timberland</p>
+      </div>
+
+      <div>
+        <img src="../assets/Clarks.png" alt="Clarks-print" width="145px" />
+        <p>Clarks</p>
+      </div>
+
+      <div>
+        <img src="../assets/converse.png" alt="Converse-print" width="145px" />
+        <p>Converse</p>
+      </div>
+    </section>
+
+    <section class="showcase"></section>
+
+    <section class="deals" id="deals">
+      <div class="product-card" data-product="1">
+        <div class="product-image-container">
+          <img
+            class="product-image"
+            src="../assets/converse.png"
+            alt="Product 1"
+          />
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <!-- ✨ Fancy Price Tag -->
+          <div class="price-tag">
+            <span class="currency">$</span><span class="amount">89</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>Converse Classic</h3>
+          <p>Timeless streetwear staple.</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="1">
+        <div class="product-image-container">
+          <img
+            class="product-image"
+            src="../assets/converse.png"
+            alt="Product 1"
+          />
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <!-- ✨ Fancy Price Tag -->
+          <div class="price-tag">
+            <span class="currency">$</span><span class="amount">89</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>Converse Classic</h3>
+          <p>Timeless streetwear staple.</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="1">
+        <div class="product-image-container">
+          <img
+            class="product-image"
+            src="../assets/converse.png"
+            alt="Product 1"
+          />
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <!-- ✨ Fancy Price Tag -->
+          <div class="price-tag">
+            <span class="currency">$</span><span class="amount">89</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>Converse Classic</h3>
+          <p>Timeless streetwear staple.</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="1">
+        <div class="product-image-container">
+          <img
+            class="product-image"
+            src="../assets/converse.png"
+            alt="Product 1"
+          />
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <!-- ✨ Fancy Price Tag -->
+          <div class="price-tag">
+            <span class="currency">$</span><span class="amount">89</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>Converse Classic</h3>
+          <p>Timeless streetwear staple.</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="1">
+        <div class="product-image-container">
+          <img
+            class="product-image"
+            src="../assets/converse.png"
+            alt="Product 1"
+          />
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <!-- ✨ Fancy Price Tag -->
+          <div class="price-tag">
+            <span class="currency">$</span><span class="amount">89</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>Converse Classic</h3>
+          <p>Timeless streetwear staple.</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="1">
+        <div class="product-image-container">
+          <img
+            class="product-image"
+            src="../assets/converse.png"
+            alt="Product 1"
+          />
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <!-- ✨ Fancy Price Tag -->
+          <div class="price-tag">
+            <span class="currency">$</span><span class="amount">89</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>Converse Classic</h3>
+          <p>Timeless streetwear staple.</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="1">
+        <div class="product-image-container">
+          <img
+            class="product-image"
+            src="../assets/converse.png"
+            alt="Product 1"
+          />
+          <div class="menu-icon" title="Options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="menu-options">
+            <button class="preview-btn">Preview</button>
+            <button class="select-btn">Select</button>
+          </div>
+          <div class="selection-overlay"></div>
+          <!-- ✨ Fancy Price Tag -->
+          <div class="price-tag">
+            <span class="currency">$</span><span class="amount">89</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>Converse Classic</h3>
+          <p>Timeless streetwear staple.</p>
+          <button class="buy-btn">Buy</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREVIEW OVERLAYS (one per product) -->
+    <section>
+      <div class="preview-overlay" data-preview="1">
+        <div class="preview-content">
+          <span class="close-preview">&times;</span>
+          <div class="carousel">
+            <div class="carousel-item active">
+              <img src="../assets/collage.jpg" alt="" />
+              <a
+                href="../assets/collage.jpg"
+                download
+                class="save-btn"
+                title="Save image"
+                ><i class="fa-solid fa-download"></i
+              ></a>
+            </div>
+            <div class="carousel-item">
+              <video
+                src="../test/6D8A329D-7897-45FF-B87B-8457D6FF6550.mov"
+                controls
+              ></video>
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/converse.png" alt="" />
+              <a
+                href="../assets/collage.jpg"
+                download
+                class="save-btn"
+                title="Save image"
+                ><i class="fa-solid fa-download"></i
+              ></a>
+            </div>
+          </div>
+          <div class="specs-card">
+            <h3>Converse Classic Specs</h3>
+            <ul>
+              <li>Material: Canvas</li>
+              <li>Sole: Rubber</li>
+              <li>Fit: True to size</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Buy Selected Button -->
+    <button class="buy-selected-btn">Buy Selected</button>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <!-- Review section -->
+        <div class="review-card" role="form" aria-labelledby="reviewTitle">
+          <div class="left">
+            <div>
+              <div class="title" id="reviewTitle">
+                <i class="fa-solid fa-star"></i>
+                Leave a review
+              </div>
+              <div class="subtitle">
+                Share your experience — honest, short, or long. We read every
+                single one.
+              </div>
+            </div>
+            <div class="review-input">
+              <label class="visually-hidden" for="review-text"
+                >Your review</label
+              >
+              <textarea
+                id="review-text"
+                name="review"
+                placeholder="Tell us what you loved (or what we can improve). Be specific — it helps future visitors and our team."
+                maxlength="1200"
+                aria-describedby="charHint"
+              ></textarea>
+              <div class="meta-row">
+                <div class="meta-pill">Public</div>
+                <div class="meta-pill" id="charHint">1200 max</div>
+              </div>
+            </div>
+            <div class="legal">
+              By submitting, you agree to our community guidelines.
+            </div>
+          </div>
+          <div class="right">
+            <div class="star-row">
+              <div class="star">
+                <i
+                  class="fa-solid fa-star"
+                  style="color: #f6d365; font-size: 20px"
+                ></i>
+              </div>
+            </div>
+            <button class="submit-btn" type="button" aria-label="Submit review">
+              <i class="fa-solid fa-pen-nib"></i>
+              Submit review
+            </button>
+            <div class="submit-caption">Secure • Moderated • Responsive</div>
+            <div class="helper">
+              Want to add photos or replies? That can be wired up next.
+            </div>
+          </div>
+        </div>
+        <!-- Brand / Logo -->
+        <div class="footer-brand">
+          <div class="logo">
+            Henry<b>Sells</b>
+            <span class="fa-stack fa-1g">
+              <i class="fa-regular fa-circle fa-stack-2x"></i>
+              <i class="fa-solid fa-star fa-stack-1x"></i>
+            </span>
+          </div>
+          <div class="socials">
+            <a
+              href="https://www.instagram.com/ifyoke0?igsh=aXdnY3ZpYmdmcGZu"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              referrerpolicy="noreferrer"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a
+              href="https://x.com/IfyOke0?s=09"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              referrerpolicy="noreferrer"
+              aria-label="Twitter"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+
+            <a
+              href="https://github.com/1501henify"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              referrerpolicy="noreferrer"
+              aria-label="Github"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a
+              href="https://discordapp.com/users/1262097173894660160"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              referrerpolicy="noreferrer"
+              aria-label="Discord"
+            >
+              <i class="fa-brands fa-discord"></i>
+            </a>
+
+            <a
+              href="https://t.me/IfyOke0"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              referrerpolicy="noreferrer"
+              aria-label="Telegram"
+            >
+              <i class="fa-brands fa-telegram"></i>
+            </a>
+
+            <a
+              href="mailto:henify.1501@gmail.com"
+              rel="nofollow"
+              aria-label="Email"
+            >
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="footer-links">
+        <button class="footer-btn" data-popup="about">About Us</button>
+        <button class="footer-btn" data-popup="help">Help</button>
+        <button class="footer-btn" data-popup="contact">Contact</button>
+      </div>
+
+      <p class="copyright">
+        &copy; <span id="year"></span> Henry Sell |
+        <a
+          href="https://universal-henify.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Henify_
+        </a>
+      </p>
+
+      <!-- Popup Modal -->
+      <div class="popup" id="popup">
+        <div class="popup-content">
+          <span class="close-btn">&times;</span>
+          <h2 id="popup-title"></h2>
+          <p id="popup-text"></p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Javascripts -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="../js/handle.js"></script>
+    <script src="../js/specs.js"></script>
+    <script src="../js/info.js"></script>
+    <script src="../js/showcase.js"></script>
+    <script src="../js/filter_two.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/observer.js"></script>
+    <script src="../js/loader.js"></script>
+  </body>
+</html>
