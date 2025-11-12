@@ -3,18 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const products = document.querySelectorAll(".product-card");
   const dealsSection = document.querySelector("#deals");
 
-  // --- Create "Show All" button (hidden by default)
   const showAllBtn = document.createElement("button");
   showAllBtn.textContent = "Show All";
   showAllBtn.classList.add("show-all-btn");
   dealsSection.parentNode.insertBefore(showAllBtn, dealsSection);
 
-  // --- Create "No Products" message
   const noProductMsg = document.createElement("p");
   noProductMsg.textContent = "";
   dealsSection.parentNode.insertBefore(noProductMsg, dealsSection.nextSibling);
 
-  // --- Apply base styles
   const applyResponsiveStyles = () => {
     const width = window.innerWidth;
 
@@ -81,11 +78,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let activeCategory = null;
 
-  // --- Filter Products
   categories.forEach((category) => {
     category.addEventListener("click", () => {
-      const categoryName = category.querySelector("p").textContent.trim().toLowerCase();
-      const brandName = categoryName.split(" ")[0]; // e.g. "HP", "Dell"
+      const categoryName = category
+        .querySelector("p")
+        .textContent.trim()
+        .toLowerCase();
+      const brandName = categoryName.split(" ")[0];
 
       if (activeCategory === brandName) {
         resetFilter();
@@ -100,9 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let found = false;
       products.forEach((product) => {
-        const productText = product.querySelector(".product-info p")?.textContent.toLowerCase() || "";
+        const productText =
+          product.querySelector(".product-info p")?.textContent.toLowerCase() ||
+          "";
 
-        // 🧠 Extract text inside parentheses (e.g., "(HP Laptop)" → "hp laptop")
         const match = productText.match(/\(([^)]+)\)/);
         const cleanName = match ? match[1].trim() : productText;
 

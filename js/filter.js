@@ -3,22 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const products = document.querySelectorAll(".product-card");
   const dealsSection = document.querySelector("#deals");
 
-  // --- Create "Show All" button (hidden by default)
   const showAllBtn = document.createElement("button");
   showAllBtn.textContent = "Show All";
   showAllBtn.classList.add("show-all-btn");
   dealsSection.parentNode.insertBefore(showAllBtn, dealsSection);
 
-  // --- Create "No Products" message
   const noProductMsg = document.createElement("p");
   noProductMsg.textContent = "";
   dealsSection.parentNode.insertBefore(noProductMsg, dealsSection.nextSibling);
 
-  // --- Apply base styles (mobile-first)
   const applyResponsiveStyles = () => {
     const width = window.innerWidth;
 
-    // Base shared styles
     Object.assign(showAllBtn.style, {
       display: "none",
       background: "var(--acent-gold)",
@@ -83,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Apply initial responsive styles
   applyResponsiveStyles();
 
-  // Update on resize or orientation change
   window.addEventListener("resize", applyResponsiveStyles);
   window.addEventListener("orientationchange", applyResponsiveStyles);
 
@@ -96,9 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .querySelector("p")
         .textContent.trim()
         .toLowerCase();
-      const brandName = categoryName.split(" ")[0]; // e.g. "HP", "Dell"
+      const brandName = categoryName.split(" ")[0];
 
-      // --- If clicked same category again → reset filter
       if (activeCategory === brandName) {
         resetFilter();
         activeCategory = null;
@@ -107,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       activeCategory = brandName;
 
-      // --- Highlight active category
       categories.forEach((cat) => cat.classList.remove("active-category"));
       category.classList.add("active-category");
 

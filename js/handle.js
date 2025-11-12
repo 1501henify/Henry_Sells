@@ -1,6 +1,3 @@
-// /js/handle.js
-// ⚡ HenrySells Universal Buy + WhatsApp + Telegram + Download
-
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".product-card");
   const buySelectedBtn = document.querySelector(".buy-selected-btn");
@@ -62,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     promptChatPreference([...selectedCards]);
   });
 
-  // --- Ask user where to continue chatting (Telegram or WhatsApp)
+  // --- Asks buyer where to continue chatting (Telegram or WhatsApp)
   function promptChatPreference(cards) {
     const overlay = document.createElement("div");
     overlay.style.cssText = `

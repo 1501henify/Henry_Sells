@@ -1,11 +1,3 @@
-// /api/handle.js
-// ⚡ Secure Telegram bot backend for HenrySells
-// -----------------------------------------------------------
-// 1️⃣  Set these on Vercel → Project Settings → Environment Variables:
-//      TELEGRAM_BOT_TOKEN = 1234567890:ABCDEF... (from @BotFather)
-//      TELEGRAM_CHAT_ID   = your_personal_chat_id (get via @userinfobot)
-// -----------------------------------------------------------
-
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ success: false, message: "Method not allowed" });
